@@ -77,7 +77,7 @@ app.post("/shortUrls", async (req, res) => {
         res.send({
           status: "SUCCESS",
           fullUrl: fullUrl,
-          shortUrl: "http://localhost:8080/" + doesExist.short,
+          shortUrl: "http://18.206.223.141/:8080/" + doesExist.short,
         });
         return;
       }
@@ -127,7 +127,7 @@ app.post("/api/getShortUrl", middleware.verify, async (req, res) => {
         res.send({
           status: "SUCCESS",
           fullUrl: fullUrl,
-          shortUrl: "http://localhost:8080/" + doesExist.short,
+          shortUrl: "http://18.206.223.141:8080/" + doesExist.short,
         });
         return;
       }
@@ -154,7 +154,7 @@ app.post("/api/getShortUrl", middleware.verify, async (req, res) => {
   res.send({
     status: "SUCCESS",
     fullUrl: fullUrl,
-    shortUrl: "http://localhost:8080/" + shortUrl,
+    shortUrl: "http://18.206.223.141:8080/" + shortUrl,
     expireAt: expire_at,
   });
 });
@@ -162,7 +162,6 @@ app.post("/api/getShortUrl", middleware.verify, async (req, res) => {
 // API POST Route for deletion of the url
 app.post("/api/deleteURL", middleware.verify, (req, res) => {
   const url = req.body.short_url;
-  console.log("hit hua");
 
   ShortUrl.findOneAndDelete({ short: url })
     .then((response) => {
