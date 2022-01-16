@@ -178,7 +178,7 @@ app.post("/api/deleteURL", middleware.verify, (req, res) => {
 });
 
 // Server Start
-app.listen(process.env.PORT || 5000, () => {
+app.listen(process.env.PORT || 8080, () => {
   console.log(`Server running on port ${process.env.PORT || 8080}`);
 });
 
