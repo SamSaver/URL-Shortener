@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <title>URL Shrinker</title>
+  </head>
+  <body>
+    <h1 class="jumbotron">URL Shrinker</h1>
+    <div class="container">
+      <form action="/shortUrls" method="post" class="my-4">
+        <div class="form-group">
+          <input
+            type="url"
+            class="mr-2 form-control"
+            placeholder="URL"
+            name="full_url"
+            id="fullUrl"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <input
+            type="text"
+            class="mr-2 form-control"
+            placeholder="Custom Alias (Optional)"
+            name="custom_alias"
+            id="custom_alias"
+          />
+        </div>
+
+        <div class="form-group">
+          <input
+            type="text"
+            class="mr-2 form-control"
+            placeholder="User Name (Optional)"
+            name="user_name"
+            id="user_name"
+          />
+        </div>
+
+        <div class="form-group">
+          <input
+            type="text"
+            class="mr-2 form-control"
+            placeholder="Expire At (Optional) [eg: 23 July, 2022]"
+            name="expire_at"
+            id="expire_at"
+          />
+        </div>
+
+        <button class="btn btn-success btn-lg mt-3" type="submit">Shrink</button>
+      </form>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Full URL</th>
+              <th>Short URL</th>
+              <th>Clicks Count</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% urls.forEach(url => { %>
+            <tr>
+              <td>
+                <a href="<%= url.full %>"> <%= url.full %> </a>
+              </td>
+              <td>
+                <a href="<%= url.short %>"
+                  ><%= 'http://localhost:8080/'+url.short %></a
+                >
+              </td>
+              <td><%= url.clicks %></td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
