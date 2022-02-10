@@ -151,7 +151,7 @@ app.post("/api/getShortUrl", middleware.verify, async (req, res) => {
         res.send({
           status: "SUCCESS",
           fullUrl: fullUrl,
-          shortUrl: "http://18.206.223.141:8080/" + doesExist.short,
+          shortUrl: "http://urlshrinker-dev.us-east-1.elasticbeanstalk.com/" + doesExist.short,
         });
         return;
       }
@@ -186,7 +186,7 @@ app.post("/api/getShortUrl", middleware.verify, async (req, res) => {
   res.send({
     status: "SUCCESS",
     fullUrl: fullUrl,
-    shortUrl: "http://18.206.223.141:8080/" + shortUrl,
+    shortUrl: "http://urlshrinker-dev.us-east-1.elasticbeanstalk.com/" + shortUrl,
     expireAt: expire_at,
   });
 });
