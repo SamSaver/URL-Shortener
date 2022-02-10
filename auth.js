@@ -1,7 +1,7 @@
 // IMPORTS
 const express = require('express') // NodeJS Framework for REST APIs
 const User = require('./models/user') // User Model
-const bcrypt = require('bcrypt') // Bcrypt Cryptography algorith to hash passwords
+const bcrypt = require('bcryptjs') // Bcrypt Cryptography algorithm to hash passwords
 const jwt = require('jsonwebtoken') // Used to generate JSON web tokens
 
 const rounds = 10 // Number of Salt Rounds for BCRYPT Algorithm
