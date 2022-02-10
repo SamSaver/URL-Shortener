@@ -151,7 +151,7 @@ app.post("/api/getShortUrl", middleware.verify, async (req, res) => {
         res.send({
           status: "SUCCESS",
           fullUrl: fullUrl,
-          shortUrl: "http://18.206.223.141:80/" + doesExist.short,
+          shortUrl: "http://18.206.223.141:8080/" + doesExist.short,
         });
         return;
       }
@@ -186,7 +186,7 @@ app.post("/api/getShortUrl", middleware.verify, async (req, res) => {
   res.send({
     status: "SUCCESS",
     fullUrl: fullUrl,
-    shortUrl: "http://18.206.223.141:80/" + shortUrl,
+    shortUrl: "http://18.206.223.141:8080/" + shortUrl,
     expireAt: expire_at,
   });
 });
@@ -215,6 +215,6 @@ app.post("/api/deleteURL", middleware.verify, (req, res) => {
 });
 
 // SERVER START
-app.listen(process.env.PORT || 80, () => {
-  console.log(`Server running on port ${process.env.PORT || 80}`);
+app.listen(process.env.PORT || 8080, () => {
+  console.log(`Server running on port ${process.env.PORT || 8080}`);
 });
